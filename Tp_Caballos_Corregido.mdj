@@ -1,0 +1,4404 @@
+{
+  "_type": "Project",
+  "_id": "ID_PROJ_0001",
+  "name": "TP_Carrera_Caballos",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "_id": "ID_MODEL_0002",
+      "_parent": {
+        "$ref": "ID_PROJ_0001"
+      },
+      "name": "TP Carrera de Caballos",
+      "ownedElements": [
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0004",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "VistaCarrera",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0017",
+              "_parent": {
+                "$ref": "ID_CLS_0004"
+              },
+              "name": "controlador",
+              "visibility": "private",
+              "type": "ControladorCarrera"
+            }
+          ],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0018",
+              "_parent": {
+                "$ref": "ID_CLS_0004"
+              },
+              "name": "mostrarPantallaJugador",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0019",
+                  "_parent": {
+                    "$ref": "ID_OP_0018"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0020",
+              "_parent": {
+                "$ref": "ID_CLS_0004"
+              },
+              "name": "mostrarCaballos",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0021",
+                  "_parent": {
+                    "$ref": "ID_OP_0020"
+                  },
+                  "name": "lista",
+                  "type": "List<CaballoDTO>",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0022",
+                  "_parent": {
+                    "$ref": "ID_OP_0020"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0023",
+              "_parent": {
+                "$ref": "ID_CLS_0004"
+              },
+              "name": "animarCarrera",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0024",
+                  "_parent": {
+                    "$ref": "ID_OP_0023"
+                  },
+                  "name": "estado",
+                  "type": "EstadoCarreraDTO",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0025",
+                  "_parent": {
+                    "$ref": "ID_OP_0023"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0026",
+              "_parent": {
+                "$ref": "ID_CLS_0004"
+              },
+              "name": "mostrarResultado",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0027",
+                  "_parent": {
+                    "$ref": "ID_OP_0026"
+                  },
+                  "name": "res",
+                  "type": "ResultadoDTO",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0028",
+                  "_parent": {
+                    "$ref": "ID_OP_0026"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": []
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0005",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "ControladorCarrera",
+          "attributes": [],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0029",
+              "_parent": {
+                "$ref": "ID_CLS_0005"
+              },
+              "name": "crearJugador",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0030",
+                  "_parent": {
+                    "$ref": "ID_OP_0029"
+                  },
+                  "name": "dto",
+                  "type": "JugadorDTO",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0031",
+                  "_parent": {
+                    "$ref": "ID_OP_0029"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0032",
+              "_parent": {
+                "$ref": "ID_CLS_0005"
+              },
+              "name": "listarCaballos",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0033",
+                  "_parent": {
+                    "$ref": "ID_OP_0032"
+                  },
+                  "name": "",
+                  "type": "List<CaballoDTO>",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0034",
+              "_parent": {
+                "$ref": "ID_CLS_0005"
+              },
+              "name": "asignarCaballo",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0035",
+                  "_parent": {
+                    "$ref": "ID_OP_0034"
+                  },
+                  "name": "jugadorId",
+                  "type": "String",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0036",
+                  "_parent": {
+                    "$ref": "ID_OP_0034"
+                  },
+                  "name": "caballoId",
+                  "type": "String",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0037",
+                  "_parent": {
+                    "$ref": "ID_OP_0034"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0038",
+              "_parent": {
+                "$ref": "ID_CLS_0005"
+              },
+              "name": "iniciarCarrera",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0039",
+                  "_parent": {
+                    "$ref": "ID_OP_0038"
+                  },
+                  "name": "",
+                  "type": "ResultadoDTO",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0040",
+              "_parent": {
+                "$ref": "ID_CLS_0005"
+              },
+              "name": "consultarPuntaje",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0041",
+                  "_parent": {
+                    "$ref": "ID_OP_0040"
+                  },
+                  "name": "jugadorId",
+                  "type": "String",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0042",
+                  "_parent": {
+                    "$ref": "ID_OP_0040"
+                  },
+                  "name": "",
+                  "type": "int",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": []
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0006",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "SistemaCarreras",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0043",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "jugadores",
+              "visibility": "private",
+              "type": "List<Jugador>"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0044",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "caballosDisponibles",
+              "visibility": "private",
+              "type": "List<Caballo>"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0045",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "carreras",
+              "visibility": "private",
+              "type": "List<Carrera>"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0046",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "instancia",
+              "visibility": "private",
+              "type": "SistemaCarreras"
+            }
+          ],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0047",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "getInstancia",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0048",
+                  "_parent": {
+                    "$ref": "ID_OP_0047"
+                  },
+                  "name": "",
+                  "type": "SistemaCarreras",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0049",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "registrarJugador",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0050",
+                  "_parent": {
+                    "$ref": "ID_OP_0049"
+                  },
+                  "name": "dto",
+                  "type": "JugadorDTO",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0051",
+                  "_parent": {
+                    "$ref": "ID_OP_0049"
+                  },
+                  "name": "",
+                  "type": "Jugador",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0052",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "getCaballosDisponibles",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0053",
+                  "_parent": {
+                    "$ref": "ID_OP_0052"
+                  },
+                  "name": "",
+                  "type": "List<Caballo>",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0054",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "asignarCaballo",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0055",
+                  "_parent": {
+                    "$ref": "ID_OP_0054"
+                  },
+                  "name": "jugador",
+                  "type": "Jugador",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0056",
+                  "_parent": {
+                    "$ref": "ID_OP_0054"
+                  },
+                  "name": "caballoId",
+                  "type": "String",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0057",
+                  "_parent": {
+                    "$ref": "ID_OP_0054"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0058",
+              "_parent": {
+                "$ref": "ID_CLS_0006"
+              },
+              "name": "crearCarrera",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0059",
+                  "_parent": {
+                    "$ref": "ID_OP_0058"
+                  },
+                  "name": "jugador",
+                  "type": "Jugador",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0060",
+                  "_parent": {
+                    "$ref": "ID_OP_0058"
+                  },
+                  "name": "distancia",
+                  "type": "int",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0061",
+                  "_parent": {
+                    "$ref": "ID_OP_0058"
+                  },
+                  "name": "",
+                  "type": "Carrera",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": [],
+          "stereotype": "singleton"
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0007",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Jugador",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0062",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "nombre",
+              "visibility": "private",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0063",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "mail",
+              "visibility": "private",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0064",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "puntajeAcumulado",
+              "visibility": "private",
+              "type": "int"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0065",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "caballoElegido",
+              "visibility": "private",
+              "type": "Caballo"
+            }
+          ],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0066",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "sumarPuntaje",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0067",
+                  "_parent": {
+                    "$ref": "ID_OP_0066"
+                  },
+                  "name": "p",
+                  "type": "int",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0068",
+                  "_parent": {
+                    "$ref": "ID_OP_0066"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0069",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "getCaballoElegido",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0070",
+                  "_parent": {
+                    "$ref": "ID_OP_0069"
+                  },
+                  "name": "",
+                  "type": "Caballo",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0071",
+              "_parent": {
+                "$ref": "ID_CLS_0007"
+              },
+              "name": "getPuntaje",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0072",
+                  "_parent": {
+                    "$ref": "ID_OP_0071"
+                  },
+                  "name": "",
+                  "type": "int",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": []
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0008",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Carrera",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0073",
+              "_parent": {
+                "$ref": "ID_CLS_0008"
+              },
+              "name": "distanciaTotal",
+              "visibility": "private",
+              "type": "int"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0074",
+              "_parent": {
+                "$ref": "ID_CLS_0008"
+              },
+              "name": "participantes",
+              "visibility": "private",
+              "type": "List<Caballo>"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0075",
+              "_parent": {
+                "$ref": "ID_CLS_0008"
+              },
+              "name": "resultado",
+              "visibility": "private",
+              "type": "ResultadoCarrera"
+            }
+          ],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0076",
+              "_parent": {
+                "$ref": "ID_CLS_0008"
+              },
+              "name": "ejecutar",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0077",
+                  "_parent": {
+                    "$ref": "ID_OP_0076"
+                  },
+                  "name": "",
+                  "type": "ResultadoCarrera",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0078",
+              "_parent": {
+                "$ref": "ID_CLS_0008"
+              },
+              "name": "avanzarTurno",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0079",
+                  "_parent": {
+                    "$ref": "ID_OP_0078"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0080",
+              "_parent": {
+                "$ref": "ID_CLS_0008"
+              },
+              "name": "determinarGanador",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0081",
+                  "_parent": {
+                    "$ref": "ID_OP_0080"
+                  },
+                  "name": "",
+                  "type": "Caballo",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": []
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0009",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "ResultadoCarrera",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0082",
+              "_parent": {
+                "$ref": "ID_CLS_0009"
+              },
+              "name": "posiciones",
+              "visibility": "private",
+              "type": "List<Caballo>"
+            }
+          ],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0083",
+              "_parent": {
+                "$ref": "ID_CLS_0009"
+              },
+              "name": "getGanador",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0084",
+                  "_parent": {
+                    "$ref": "ID_OP_0083"
+                  },
+                  "name": "",
+                  "type": "Caballo",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0085",
+              "_parent": {
+                "$ref": "ID_CLS_0009"
+              },
+              "name": "puntajeDe",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0086",
+                  "_parent": {
+                    "$ref": "ID_OP_0085"
+                  },
+                  "name": "c",
+                  "type": "Caballo",
+                  "direction": "in"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0087",
+                  "_parent": {
+                    "$ref": "ID_OP_0085"
+                  },
+                  "name": "",
+                  "type": "int",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": []
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0010",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Caballo",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0088",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "nombre",
+              "visibility": "protected",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0089",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "velocidadBase",
+              "visibility": "protected",
+              "type": "int"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0090",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "resistencia",
+              "visibility": "protected",
+              "type": "int"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0091",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "energia",
+              "visibility": "protected",
+              "type": "int"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0092",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "distanciaRecorrida",
+              "visibility": "protected",
+              "type": "int"
+            }
+          ],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0093",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "calcularAvance",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0094",
+                  "_parent": {
+                    "$ref": "ID_OP_0093"
+                  },
+                  "name": "",
+                  "type": "double",
+                  "direction": "return"
+                }
+              ],
+              "isAbstract": true
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0095",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "actualizarEnergia",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0096",
+                  "_parent": {
+                    "$ref": "ID_OP_0095"
+                  },
+                  "name": "",
+                  "type": "void",
+                  "direction": "return"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0097",
+              "_parent": {
+                "$ref": "ID_CLS_0010"
+              },
+              "name": "getDistanciaRecorrida",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0098",
+                  "_parent": {
+                    "$ref": "ID_OP_0097"
+                  },
+                  "name": "",
+                  "type": "int",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": [],
+          "isAbstract": true
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0011",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "CaballoVeloz",
+          "attributes": [],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0099",
+              "_parent": {
+                "$ref": "ID_CLS_0011"
+              },
+              "name": "calcularAvance",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0100",
+                  "_parent": {
+                    "$ref": "ID_OP_0099"
+                  },
+                  "name": "",
+                  "type": "double",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "UMLGeneralization",
+              "_id": "ID_GEN_0139",
+              "_parent": {
+                "$ref": "ID_CLS_0011"
+              },
+              "source": {
+                "$ref": "ID_CLS_0011"
+              },
+              "target": {
+                "$ref": "ID_CLS_0010"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0012",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "CaballoResistente",
+          "attributes": [],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0101",
+              "_parent": {
+                "$ref": "ID_CLS_0012"
+              },
+              "name": "calcularAvance",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0102",
+                  "_parent": {
+                    "$ref": "ID_OP_0101"
+                  },
+                  "name": "",
+                  "type": "double",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "UMLGeneralization",
+              "_id": "ID_GEN_0140",
+              "_parent": {
+                "$ref": "ID_CLS_0012"
+              },
+              "source": {
+                "$ref": "ID_CLS_0012"
+              },
+              "target": {
+                "$ref": "ID_CLS_0010"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0013",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "CaballoEstandar",
+          "attributes": [],
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "ID_OP_0103",
+              "_parent": {
+                "$ref": "ID_CLS_0013"
+              },
+              "name": "calcularAvance",
+              "visibility": "public",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "ID_PAR_0104",
+                  "_parent": {
+                    "$ref": "ID_OP_0103"
+                  },
+                  "name": "",
+                  "type": "double",
+                  "direction": "return"
+                }
+              ]
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "UMLGeneralization",
+              "_id": "ID_GEN_0141",
+              "_parent": {
+                "$ref": "ID_CLS_0013"
+              },
+              "source": {
+                "$ref": "ID_CLS_0013"
+              },
+              "target": {
+                "$ref": "ID_CLS_0010"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0014",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "JugadorDTO",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0105",
+              "_parent": {
+                "$ref": "ID_CLS_0014"
+              },
+              "name": "nombre",
+              "visibility": "public",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0106",
+              "_parent": {
+                "$ref": "ID_CLS_0014"
+              },
+              "name": "mail",
+              "visibility": "public",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0107",
+              "_parent": {
+                "$ref": "ID_CLS_0014"
+              },
+              "name": "puntaje",
+              "visibility": "public",
+              "type": "int"
+            }
+          ],
+          "operations": [],
+          "ownedElements": [],
+          "stereotype": "DTO"
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0015",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "CaballoDTO",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0108",
+              "_parent": {
+                "$ref": "ID_CLS_0015"
+              },
+              "name": "id",
+              "visibility": "public",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0109",
+              "_parent": {
+                "$ref": "ID_CLS_0015"
+              },
+              "name": "nombre",
+              "visibility": "public",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0110",
+              "_parent": {
+                "$ref": "ID_CLS_0015"
+              },
+              "name": "tipo",
+              "visibility": "public",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0111",
+              "_parent": {
+                "$ref": "ID_CLS_0015"
+              },
+              "name": "distanciaRecorrida",
+              "visibility": "public",
+              "type": "int"
+            }
+          ],
+          "operations": [],
+          "ownedElements": [],
+          "stereotype": "DTO"
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "ID_CLS_0016",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "ResultadoDTO",
+          "attributes": [
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0112",
+              "_parent": {
+                "$ref": "ID_CLS_0016"
+              },
+              "name": "nombreGanador",
+              "visibility": "public",
+              "type": "String"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0113",
+              "_parent": {
+                "$ref": "ID_CLS_0016"
+              },
+              "name": "posiciones",
+              "visibility": "public",
+              "type": "List<String>"
+            },
+            {
+              "_type": "UMLAttribute",
+              "_id": "ID_ATTR_0114",
+              "_parent": {
+                "$ref": "ID_CLS_0016"
+              },
+              "name": "puntajeObtenido",
+              "visibility": "public",
+              "type": "int"
+            }
+          ],
+          "operations": [],
+          "ownedElements": [],
+          "stereotype": "DTO"
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0115",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0116",
+            "_parent": {
+              "$ref": "ID_ASSOC_0115"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0004"
+            },
+            "multiplicity": "1",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0117",
+            "_parent": {
+              "$ref": "ID_ASSOC_0115"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0005"
+            },
+            "multiplicity": "1",
+            "name": "controlador",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0118",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0119",
+            "_parent": {
+              "$ref": "ID_ASSOC_0118"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0005"
+            },
+            "multiplicity": "",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0120",
+            "_parent": {
+              "$ref": "ID_ASSOC_0118"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0006"
+            },
+            "multiplicity": "1",
+            "name": "sistema",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0121",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0122",
+            "_parent": {
+              "$ref": "ID_ASSOC_0121"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0006"
+            },
+            "multiplicity": "1",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0123",
+            "_parent": {
+              "$ref": "ID_ASSOC_0121"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0007"
+            },
+            "multiplicity": "0..*",
+            "name": "jugadores",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0124",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0125",
+            "_parent": {
+              "$ref": "ID_ASSOC_0124"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0006"
+            },
+            "multiplicity": "1",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0126",
+            "_parent": {
+              "$ref": "ID_ASSOC_0124"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0010"
+            },
+            "multiplicity": "0..*",
+            "name": "caballosDisponibles",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0127",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0128",
+            "_parent": {
+              "$ref": "ID_ASSOC_0127"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0006"
+            },
+            "multiplicity": "1",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0129",
+            "_parent": {
+              "$ref": "ID_ASSOC_0127"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0008"
+            },
+            "multiplicity": "0..*",
+            "name": "carreras",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0130",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0131",
+            "_parent": {
+              "$ref": "ID_ASSOC_0130"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0007"
+            },
+            "multiplicity": "0..*",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0132",
+            "_parent": {
+              "$ref": "ID_ASSOC_0130"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0010"
+            },
+            "multiplicity": "0..1",
+            "name": "caballoElegido",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0133",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0134",
+            "_parent": {
+              "$ref": "ID_ASSOC_0133"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0008"
+            },
+            "multiplicity": "0..*",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0135",
+            "_parent": {
+              "$ref": "ID_ASSOC_0133"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0010"
+            },
+            "multiplicity": "1..*",
+            "name": "participantes",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLAssociation",
+          "_id": "ID_ASSOC_0136",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "end1": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0137",
+            "_parent": {
+              "$ref": "ID_ASSOC_0136"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0008"
+            },
+            "multiplicity": "1",
+            "navigable": "unspecified"
+          },
+          "end2": {
+            "_type": "UMLAssociationEnd",
+            "_id": "ID_END_0138",
+            "_parent": {
+              "$ref": "ID_ASSOC_0136"
+            },
+            "reference": {
+              "$ref": "ID_CLS_0009"
+            },
+            "multiplicity": "1",
+            "name": "resultado",
+            "navigable": "navigable"
+          }
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "ID_DEP_0142",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "source": {
+            "$ref": "ID_CLS_0005"
+          },
+          "target": {
+            "$ref": "ID_CLS_0014"
+          },
+          "name": "usa"
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "ID_DEP_0143",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "source": {
+            "$ref": "ID_CLS_0005"
+          },
+          "target": {
+            "$ref": "ID_CLS_0015"
+          },
+          "name": "usa"
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "ID_DEP_0144",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "source": {
+            "$ref": "ID_CLS_0005"
+          },
+          "target": {
+            "$ref": "ID_CLS_0016"
+          },
+          "name": "devuelve"
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "ID_DEP_0145",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "source": {
+            "$ref": "ID_CLS_0004"
+          },
+          "target": {
+            "$ref": "ID_CLS_0014"
+          },
+          "name": "usa"
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "ID_DEP_0146",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "source": {
+            "$ref": "ID_CLS_0004"
+          },
+          "target": {
+            "$ref": "ID_CLS_0015"
+          },
+          "name": "usa"
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "ID_DEP_0147",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "source": {
+            "$ref": "ID_CLS_0004"
+          },
+          "target": {
+            "$ref": "ID_CLS_0016"
+          },
+          "name": "usa"
+        },
+        {
+          "_type": "UMLActor",
+          "_id": "ID_ACT_0221",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Usuario"
+        },
+        {
+          "_type": "UMLActor",
+          "_id": "ID_ACT_0255",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Usuario"
+        },
+        {
+          "_type": "UMLActor",
+          "_id": "ID_ACT_0295",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Usuario"
+        },
+        {
+          "_type": "UMLActor",
+          "_id": "ID_ACT_0335",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Usuario"
+        },
+        {
+          "_type": "UMLCollaboration",
+          "_id": "ID_COLLAB_0217",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Collab_CU1_CrearJugador",
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "ID_INTER_0218",
+              "_parent": {
+                "$ref": "ID_COLLAB_0217"
+              },
+              "name": "Interaction_CU1_CrearJugador",
+              "ownedElements": [
+                {
+                  "_type": "UMLSequenceDiagram",
+                  "_id": "ID_SDIAG_0219",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "CU1_CrearJugador",
+                  "ownedViews": [
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0236",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0220"
+                      },
+                      "subViews": [],
+                      "left": 50,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0237",
+                        "_parent": {
+                          "$ref": "ID_LLV_0236"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0220"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0238",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0223"
+                      },
+                      "subViews": [],
+                      "left": 210,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0239",
+                        "_parent": {
+                          "$ref": "ID_LLV_0238"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0223"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0240",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0225"
+                      },
+                      "subViews": [],
+                      "left": 370,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0241",
+                        "_parent": {
+                          "$ref": "ID_LLV_0240"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0225"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0242",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0227"
+                      },
+                      "subViews": [],
+                      "left": 530,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0243",
+                        "_parent": {
+                          "$ref": "ID_LLV_0242"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0227"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0244",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0229"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0236"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0238"
+                      },
+                      "lineStyle": 1,
+                      "points": "120:80;280:80"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0245",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0230"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0238"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0240"
+                      },
+                      "lineStyle": 1,
+                      "points": "280:130;440:130"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0246",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0231"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0240"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0242"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:180;600:180"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0247",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0232"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0242"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0240"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:230;440:230"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0248",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0233"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0240"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0242"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:280;600:280"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0249",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0234"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0242"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0240"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:330;440:330"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0250",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0219"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0235"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0240"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0238"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:380;280:380"
+                    }
+                  ]
+                }
+              ],
+              "participants": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0220",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "Usuario",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0222",
+                    "_parent": {
+                      "$ref": "ID_LL_0220"
+                    },
+                    "name": "Usuario",
+                    "type": {
+                      "$ref": "ID_ACT_0221"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0223",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "vista",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0224",
+                    "_parent": {
+                      "$ref": "ID_LL_0223"
+                    },
+                    "name": "vista",
+                    "type": {
+                      "$ref": "ID_CLS_0004"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0225",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "controlador",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0226",
+                    "_parent": {
+                      "$ref": "ID_LL_0225"
+                    },
+                    "name": "controlador",
+                    "type": {
+                      "$ref": "ID_CLS_0005"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0227",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "sistema",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0228",
+                    "_parent": {
+                      "$ref": "ID_LL_0227"
+                    },
+                    "name": "sistema",
+                    "type": {
+                      "$ref": "ID_CLS_0006"
+                    }
+                  },
+                  "isMultiInstance": false
+                }
+              ],
+              "messages": [
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0229",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "ingresar nombre y mail",
+                  "source": {
+                    "$ref": "ID_LL_0220"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0223"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0230",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "crearJugador(jugadorDTO)",
+                  "source": {
+                    "$ref": "ID_LL_0223"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0225"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0231",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "getInstancia()",
+                  "source": {
+                    "$ref": "ID_LL_0225"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0227"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0232",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "instancia",
+                  "source": {
+                    "$ref": "ID_LL_0227"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0225"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0233",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "registrarJugador(jugadorDTO)",
+                  "source": {
+                    "$ref": "ID_LL_0225"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0227"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0234",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "jugador",
+                  "source": {
+                    "$ref": "ID_LL_0227"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0225"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0235",
+                  "_parent": {
+                    "$ref": "ID_INTER_0218"
+                  },
+                  "name": "ok",
+                  "source": {
+                    "$ref": "ID_LL_0225"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0223"
+                  },
+                  "messageSort": "reply"
+                }
+              ],
+              "fragments": []
+            }
+          ]
+        },
+        {
+          "_type": "UMLCollaboration",
+          "_id": "ID_COLLAB_0251",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Collab_CU2_ElegirCaballo",
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "ID_INTER_0252",
+              "_parent": {
+                "$ref": "ID_COLLAB_0251"
+              },
+              "name": "Interaction_CU2_ElegirCaballo",
+              "ownedElements": [
+                {
+                  "_type": "UMLSequenceDiagram",
+                  "_id": "ID_SDIAG_0253",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "CU2_ElegirCaballo",
+                  "ownedViews": [
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0273",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0254"
+                      },
+                      "subViews": [],
+                      "left": 50,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0274",
+                        "_parent": {
+                          "$ref": "ID_LLV_0273"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0254"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0275",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0257"
+                      },
+                      "subViews": [],
+                      "left": 210,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0276",
+                        "_parent": {
+                          "$ref": "ID_LLV_0275"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0257"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0277",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0259"
+                      },
+                      "subViews": [],
+                      "left": 370,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0278",
+                        "_parent": {
+                          "$ref": "ID_LLV_0277"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0259"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0279",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0261"
+                      },
+                      "subViews": [],
+                      "left": 530,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0280",
+                        "_parent": {
+                          "$ref": "ID_LLV_0279"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0261"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0281",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0263"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0273"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0275"
+                      },
+                      "lineStyle": 1,
+                      "points": "120:80;280:80"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0282",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0264"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0275"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "lineStyle": 1,
+                      "points": "280:130;440:130"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0283",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0265"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0279"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:180;600:180"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0284",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0266"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0279"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:230;440:230"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0285",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0267"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0275"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:280;280:280"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0286",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0268"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0273"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0275"
+                      },
+                      "lineStyle": 1,
+                      "points": "120:330;280:330"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0287",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0269"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0275"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "lineStyle": 1,
+                      "points": "280:380;440:380"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0288",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0270"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0279"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:430;600:430"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0289",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0271"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0279"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:480;440:480"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0290",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0253"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0272"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0277"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0275"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:530;280:530"
+                    }
+                  ]
+                }
+              ],
+              "participants": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0254",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "Usuario",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0256",
+                    "_parent": {
+                      "$ref": "ID_LL_0254"
+                    },
+                    "name": "Usuario",
+                    "type": {
+                      "$ref": "ID_ACT_0255"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0257",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "vista",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0258",
+                    "_parent": {
+                      "$ref": "ID_LL_0257"
+                    },
+                    "name": "vista",
+                    "type": {
+                      "$ref": "ID_CLS_0004"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0259",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "controlador",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0260",
+                    "_parent": {
+                      "$ref": "ID_LL_0259"
+                    },
+                    "name": "controlador",
+                    "type": {
+                      "$ref": "ID_CLS_0005"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0261",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "sistema",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0262",
+                    "_parent": {
+                      "$ref": "ID_LL_0261"
+                    },
+                    "name": "sistema",
+                    "type": {
+                      "$ref": "ID_CLS_0006"
+                    }
+                  },
+                  "isMultiInstance": false
+                }
+              ],
+              "messages": [
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0263",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "abrir pantalla de selección",
+                  "source": {
+                    "$ref": "ID_LL_0254"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0257"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0264",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "listarCaballos()",
+                  "source": {
+                    "$ref": "ID_LL_0257"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0265",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "getCaballosDisponibles()",
+                  "source": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0261"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0266",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "List<Caballo>",
+                  "source": {
+                    "$ref": "ID_LL_0261"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0267",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "List<CaballoDTO>",
+                  "source": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0257"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0268",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "seleccionar caballo",
+                  "source": {
+                    "$ref": "ID_LL_0254"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0257"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0269",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "asignarCaballo(jugadorId, caballoId)",
+                  "source": {
+                    "$ref": "ID_LL_0257"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0270",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "asignarCaballo(jugador, caballoId)",
+                  "source": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0261"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0271",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "ok",
+                  "source": {
+                    "$ref": "ID_LL_0261"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0272",
+                  "_parent": {
+                    "$ref": "ID_INTER_0252"
+                  },
+                  "name": "ok",
+                  "source": {
+                    "$ref": "ID_LL_0259"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0257"
+                  },
+                  "messageSort": "reply"
+                }
+              ],
+              "fragments": []
+            }
+          ]
+        },
+        {
+          "_type": "UMLCollaboration",
+          "_id": "ID_COLLAB_0291",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Collab_CU3_CorrerCarrera",
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "ID_INTER_0292",
+              "_parent": {
+                "$ref": "ID_COLLAB_0291"
+              },
+              "name": "Interaction_CU3_CorrerCarrera",
+              "ownedElements": [
+                {
+                  "_type": "UMLSequenceDiagram",
+                  "_id": "ID_SDIAG_0293",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "CU3_CorrerCarrera",
+                  "ownedViews": [
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0313",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0294"
+                      },
+                      "subViews": [],
+                      "left": 50,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0314",
+                        "_parent": {
+                          "$ref": "ID_LLV_0313"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0294"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0315",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0297"
+                      },
+                      "subViews": [],
+                      "left": 210,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0316",
+                        "_parent": {
+                          "$ref": "ID_LLV_0315"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0297"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0317",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0299"
+                      },
+                      "subViews": [],
+                      "left": 370,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0318",
+                        "_parent": {
+                          "$ref": "ID_LLV_0317"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0299"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0319",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0301"
+                      },
+                      "subViews": [],
+                      "left": 530,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0320",
+                        "_parent": {
+                          "$ref": "ID_LLV_0319"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0301"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0321",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0303"
+                      },
+                      "subViews": [],
+                      "left": 690,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0322",
+                        "_parent": {
+                          "$ref": "ID_LLV_0321"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0303"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0323",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0305"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0313"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0315"
+                      },
+                      "lineStyle": 1,
+                      "points": "120:80;280:80"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0324",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0306"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0315"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0317"
+                      },
+                      "lineStyle": 1,
+                      "points": "280:130;440:130"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0325",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0307"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0317"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0319"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:180;600:180"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0326",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0308"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0319"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0321"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:230;760:230"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0327",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0309"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0319"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0317"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:280;440:280"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0328",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0310"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0317"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0321"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:330;760:330"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0329",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0311"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0321"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0317"
+                      },
+                      "lineStyle": 1,
+                      "points": "760:380;440:380"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0330",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0293"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0312"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0317"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0315"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:430;280:430"
+                    }
+                  ]
+                }
+              ],
+              "participants": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0294",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "Usuario",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0296",
+                    "_parent": {
+                      "$ref": "ID_LL_0294"
+                    },
+                    "name": "Usuario",
+                    "type": {
+                      "$ref": "ID_ACT_0295"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0297",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "vista",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0298",
+                    "_parent": {
+                      "$ref": "ID_LL_0297"
+                    },
+                    "name": "vista",
+                    "type": {
+                      "$ref": "ID_CLS_0004"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0299",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "controlador",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0300",
+                    "_parent": {
+                      "$ref": "ID_LL_0299"
+                    },
+                    "name": "controlador",
+                    "type": {
+                      "$ref": "ID_CLS_0005"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0301",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "sistema",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0302",
+                    "_parent": {
+                      "$ref": "ID_LL_0301"
+                    },
+                    "name": "sistema",
+                    "type": {
+                      "$ref": "ID_CLS_0006"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0303",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "carrera",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0304",
+                    "_parent": {
+                      "$ref": "ID_LL_0303"
+                    },
+                    "name": "carrera",
+                    "type": {
+                      "$ref": "ID_CLS_0008"
+                    }
+                  },
+                  "isMultiInstance": false
+                }
+              ],
+              "messages": [
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0305",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "iniciar carrera",
+                  "source": {
+                    "$ref": "ID_LL_0294"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0297"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0306",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "iniciarCarrera()",
+                  "source": {
+                    "$ref": "ID_LL_0297"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0299"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0307",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "crearCarrera(jugador, distancia)",
+                  "source": {
+                    "$ref": "ID_LL_0299"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0301"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0308",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "«create»",
+                  "source": {
+                    "$ref": "ID_LL_0301"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0303"
+                  },
+                  "messageSort": "createMessage"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0309",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "carrera",
+                  "source": {
+                    "$ref": "ID_LL_0301"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0299"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0310",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "ejecutar()",
+                  "source": {
+                    "$ref": "ID_LL_0299"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0303"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0311",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "ResultadoCarrera",
+                  "source": {
+                    "$ref": "ID_LL_0303"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0299"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0312",
+                  "_parent": {
+                    "$ref": "ID_INTER_0292"
+                  },
+                  "name": "ResultadoDTO",
+                  "source": {
+                    "$ref": "ID_LL_0299"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0297"
+                  },
+                  "messageSort": "reply"
+                }
+              ],
+              "fragments": []
+            }
+          ]
+        },
+        {
+          "_type": "UMLCollaboration",
+          "_id": "ID_COLLAB_0331",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Collab_CU4_MostrarResultado",
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "ID_INTER_0332",
+              "_parent": {
+                "$ref": "ID_COLLAB_0331"
+              },
+              "name": "Interaction_CU4_MostrarResultado",
+              "ownedElements": [
+                {
+                  "_type": "UMLSequenceDiagram",
+                  "_id": "ID_SDIAG_0333",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "CU4_MostrarResultado",
+                  "ownedViews": [
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0348",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0334"
+                      },
+                      "subViews": [],
+                      "left": 50,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0349",
+                        "_parent": {
+                          "$ref": "ID_LLV_0348"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0334"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0350",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0337"
+                      },
+                      "subViews": [],
+                      "left": 210,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0351",
+                        "_parent": {
+                          "$ref": "ID_LLV_0350"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0337"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0352",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0339"
+                      },
+                      "subViews": [],
+                      "left": 370,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0353",
+                        "_parent": {
+                          "$ref": "ID_LLV_0352"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0339"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqLifelineView",
+                      "_id": "ID_LLV_0354",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_LL_0341"
+                      },
+                      "subViews": [],
+                      "left": 530,
+                      "top": 40,
+                      "width": 140,
+                      "height": 640,
+                      "nameCompartment": {
+                        "_type": "UMLNameCompartment",
+                        "_id": "ID_LLVNC_0355",
+                        "_parent": {
+                          "$ref": "ID_LLV_0354"
+                        },
+                        "model": {
+                          "$ref": "ID_LL_0341"
+                        }
+                      }
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0356",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0343"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0350"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0352"
+                      },
+                      "lineStyle": 1,
+                      "points": "280:80;440:80"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0357",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0344"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0352"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0354"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:130;600:130"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0358",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0345"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0354"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0352"
+                      },
+                      "lineStyle": 1,
+                      "points": "600:180;440:180"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0359",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0346"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0352"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0350"
+                      },
+                      "lineStyle": 1,
+                      "points": "440:230;280:230"
+                    },
+                    {
+                      "_type": "UMLSeqMessageView",
+                      "_id": "ID_MSGV_0360",
+                      "_parent": {
+                        "$ref": "ID_SDIAG_0333"
+                      },
+                      "model": {
+                        "$ref": "ID_MSG_0347"
+                      },
+                      "source": {
+                        "$ref": "ID_LLV_0350"
+                      },
+                      "target": {
+                        "$ref": "ID_LLV_0348"
+                      },
+                      "lineStyle": 1,
+                      "points": "280:280;120:280"
+                    }
+                  ]
+                }
+              ],
+              "participants": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0334",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "Usuario",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0336",
+                    "_parent": {
+                      "$ref": "ID_LL_0334"
+                    },
+                    "name": "Usuario",
+                    "type": {
+                      "$ref": "ID_ACT_0335"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0337",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "vista",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0338",
+                    "_parent": {
+                      "$ref": "ID_LL_0337"
+                    },
+                    "name": "vista",
+                    "type": {
+                      "$ref": "ID_CLS_0004"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0339",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "controlador",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0340",
+                    "_parent": {
+                      "$ref": "ID_LL_0339"
+                    },
+                    "name": "controlador",
+                    "type": {
+                      "$ref": "ID_CLS_0005"
+                    }
+                  },
+                  "isMultiInstance": false
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ID_LL_0341",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "sistema",
+                  "represent": {
+                    "_type": "UMLAttribute",
+                    "_id": "ID_REPR_0342",
+                    "_parent": {
+                      "$ref": "ID_LL_0341"
+                    },
+                    "name": "sistema",
+                    "type": {
+                      "$ref": "ID_CLS_0006"
+                    }
+                  },
+                  "isMultiInstance": false
+                }
+              ],
+              "messages": [
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0343",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "consultarPuntaje(jugadorId)",
+                  "source": {
+                    "$ref": "ID_LL_0337"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0339"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0344",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "getJugador(jugadorId)",
+                  "source": {
+                    "$ref": "ID_LL_0339"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0341"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0345",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "jugador",
+                  "source": {
+                    "$ref": "ID_LL_0341"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0339"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0346",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "puntajeAcumulado",
+                  "source": {
+                    "$ref": "ID_LL_0339"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0337"
+                  },
+                  "messageSort": "reply"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "ID_MSG_0347",
+                  "_parent": {
+                    "$ref": "ID_INTER_0332"
+                  },
+                  "name": "render ganador + puntaje",
+                  "source": {
+                    "$ref": "ID_LL_0337"
+                  },
+                  "target": {
+                    "$ref": "ID_LL_0334"
+                  },
+                  "messageSort": "reply"
+                }
+              ],
+              "fragments": []
+            }
+          ]
+        },
+        {
+          "_type": "UMLClassDiagram",
+          "_id": "ID_CDIAG_0003",
+          "_parent": {
+            "$ref": "ID_MODEL_0002"
+          },
+          "name": "Diagrama de clases - Carrera de caballos",
+          "defaultDiagram": true,
+          "ownedViews": [
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0148",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0004"
+              },
+              "subViews": [],
+              "left": 40,
+              "top": 40,
+              "width": 180,
+              "height": 110,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0149",
+                "_parent": {
+                  "$ref": "ID_CV_0148"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0004"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0150",
+                "_parent": {
+                  "$ref": "ID_CV_0148"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0004"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0151",
+                "_parent": {
+                  "$ref": "ID_CV_0148"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0004"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0152",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0005"
+              },
+              "subViews": [],
+              "left": 280,
+              "top": 40,
+              "width": 230,
+              "height": 160,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0153",
+                "_parent": {
+                  "$ref": "ID_CV_0152"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0005"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0154",
+                "_parent": {
+                  "$ref": "ID_CV_0152"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0005"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0155",
+                "_parent": {
+                  "$ref": "ID_CV_0152"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0005"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0156",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0006"
+              },
+              "subViews": [],
+              "left": 560,
+              "top": 40,
+              "width": 260,
+              "height": 220,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0157",
+                "_parent": {
+                  "$ref": "ID_CV_0156"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0006"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0158",
+                "_parent": {
+                  "$ref": "ID_CV_0156"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0006"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0159",
+                "_parent": {
+                  "$ref": "ID_CV_0156"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0006"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0160",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0007"
+              },
+              "subViews": [],
+              "left": 40,
+              "top": 300,
+              "width": 200,
+              "height": 170,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0161",
+                "_parent": {
+                  "$ref": "ID_CV_0160"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0007"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0162",
+                "_parent": {
+                  "$ref": "ID_CV_0160"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0007"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0163",
+                "_parent": {
+                  "$ref": "ID_CV_0160"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0007"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0164",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0008"
+              },
+              "subViews": [],
+              "left": 280,
+              "top": 300,
+              "width": 230,
+              "height": 160,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0165",
+                "_parent": {
+                  "$ref": "ID_CV_0164"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0008"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0166",
+                "_parent": {
+                  "$ref": "ID_CV_0164"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0008"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0167",
+                "_parent": {
+                  "$ref": "ID_CV_0164"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0008"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0168",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0009"
+              },
+              "subViews": [],
+              "left": 560,
+              "top": 300,
+              "width": 200,
+              "height": 140,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0169",
+                "_parent": {
+                  "$ref": "ID_CV_0168"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0009"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0170",
+                "_parent": {
+                  "$ref": "ID_CV_0168"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0009"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0171",
+                "_parent": {
+                  "$ref": "ID_CV_0168"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0009"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0172",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0010"
+              },
+              "subViews": [],
+              "left": 280,
+              "top": 530,
+              "width": 230,
+              "height": 220,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0173",
+                "_parent": {
+                  "$ref": "ID_CV_0172"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0010"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0174",
+                "_parent": {
+                  "$ref": "ID_CV_0172"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0010"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0175",
+                "_parent": {
+                  "$ref": "ID_CV_0172"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0010"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0176",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0011"
+              },
+              "subViews": [],
+              "left": 40,
+              "top": 820,
+              "width": 180,
+              "height": 90,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0177",
+                "_parent": {
+                  "$ref": "ID_CV_0176"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0011"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0178",
+                "_parent": {
+                  "$ref": "ID_CV_0176"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0011"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0179",
+                "_parent": {
+                  "$ref": "ID_CV_0176"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0011"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0180",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0012"
+              },
+              "subViews": [],
+              "left": 280,
+              "top": 820,
+              "width": 200,
+              "height": 90,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0181",
+                "_parent": {
+                  "$ref": "ID_CV_0180"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0012"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0182",
+                "_parent": {
+                  "$ref": "ID_CV_0180"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0012"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0183",
+                "_parent": {
+                  "$ref": "ID_CV_0180"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0012"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0184",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0013"
+              },
+              "subViews": [],
+              "left": 540,
+              "top": 820,
+              "width": 180,
+              "height": 90,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0185",
+                "_parent": {
+                  "$ref": "ID_CV_0184"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0013"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0186",
+                "_parent": {
+                  "$ref": "ID_CV_0184"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0013"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0187",
+                "_parent": {
+                  "$ref": "ID_CV_0184"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0013"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0188",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0014"
+              },
+              "subViews": [],
+              "left": 40,
+              "top": 960,
+              "width": 180,
+              "height": 100,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0189",
+                "_parent": {
+                  "$ref": "ID_CV_0188"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0014"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0190",
+                "_parent": {
+                  "$ref": "ID_CV_0188"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0014"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0191",
+                "_parent": {
+                  "$ref": "ID_CV_0188"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0014"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0192",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0015"
+              },
+              "subViews": [],
+              "left": 280,
+              "top": 960,
+              "width": 200,
+              "height": 120,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0193",
+                "_parent": {
+                  "$ref": "ID_CV_0192"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0015"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0194",
+                "_parent": {
+                  "$ref": "ID_CV_0192"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0015"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0195",
+                "_parent": {
+                  "$ref": "ID_CV_0192"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0015"
+                }
+              }
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "ID_CV_0196",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_CLS_0016"
+              },
+              "subViews": [],
+              "left": 540,
+              "top": 960,
+              "width": 200,
+              "height": 120,
+              "nameCompartment": {
+                "_type": "UMLNameCompartment",
+                "_id": "ID_NC_0197",
+                "_parent": {
+                  "$ref": "ID_CV_0196"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0016"
+                }
+              },
+              "attributeCompartment": {
+                "_type": "UMLAttributeCompartment",
+                "_id": "ID_AC_0198",
+                "_parent": {
+                  "$ref": "ID_CV_0196"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0016"
+                }
+              },
+              "operationCompartment": {
+                "_type": "UMLOperationCompartment",
+                "_id": "ID_OC_0199",
+                "_parent": {
+                  "$ref": "ID_CV_0196"
+                },
+                "model": {
+                  "$ref": "ID_CLS_0016"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0200",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0115"
+              },
+              "head": {
+                "$ref": "ID_CV_0152"
+              },
+              "tail": {
+                "$ref": "ID_CV_0148"
+              },
+              "lineStyle": 1,
+              "points": "130:95;395:120"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0201",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0118"
+              },
+              "head": {
+                "$ref": "ID_CV_0156"
+              },
+              "tail": {
+                "$ref": "ID_CV_0152"
+              },
+              "lineStyle": 1,
+              "points": "395:120;690:150"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0202",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0121"
+              },
+              "head": {
+                "$ref": "ID_CV_0160"
+              },
+              "tail": {
+                "$ref": "ID_CV_0156"
+              },
+              "lineStyle": 1,
+              "points": "690:150;140:385"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0203",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0124"
+              },
+              "head": {
+                "$ref": "ID_CV_0172"
+              },
+              "tail": {
+                "$ref": "ID_CV_0156"
+              },
+              "lineStyle": 1,
+              "points": "690:150;395:640"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0204",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0127"
+              },
+              "head": {
+                "$ref": "ID_CV_0164"
+              },
+              "tail": {
+                "$ref": "ID_CV_0156"
+              },
+              "lineStyle": 1,
+              "points": "690:150;395:380"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0205",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0130"
+              },
+              "head": {
+                "$ref": "ID_CV_0172"
+              },
+              "tail": {
+                "$ref": "ID_CV_0160"
+              },
+              "lineStyle": 1,
+              "points": "140:385;395:640"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0206",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0133"
+              },
+              "head": {
+                "$ref": "ID_CV_0172"
+              },
+              "tail": {
+                "$ref": "ID_CV_0164"
+              },
+              "lineStyle": 1,
+              "points": "395:380;395:640"
+            },
+            {
+              "_type": "UMLAssociationView",
+              "_id": "ID_ASV_0207",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_ASSOC_0136"
+              },
+              "head": {
+                "$ref": "ID_CV_0168"
+              },
+              "tail": {
+                "$ref": "ID_CV_0164"
+              },
+              "lineStyle": 1,
+              "points": "395:380;660:370"
+            },
+            {
+              "_type": "UMLGeneralizationView",
+              "_id": "ID_GV_0208",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_GEN_0139"
+              },
+              "head": {
+                "$ref": "ID_CV_0172"
+              },
+              "tail": {
+                "$ref": "ID_CV_0176"
+              },
+              "lineStyle": 1,
+              "points": "130:820;395:750"
+            },
+            {
+              "_type": "UMLGeneralizationView",
+              "_id": "ID_GV_0209",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_GEN_0140"
+              },
+              "head": {
+                "$ref": "ID_CV_0172"
+              },
+              "tail": {
+                "$ref": "ID_CV_0180"
+              },
+              "lineStyle": 1,
+              "points": "380:820;395:750"
+            },
+            {
+              "_type": "UMLGeneralizationView",
+              "_id": "ID_GV_0210",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_GEN_0141"
+              },
+              "head": {
+                "$ref": "ID_CV_0172"
+              },
+              "tail": {
+                "$ref": "ID_CV_0184"
+              },
+              "lineStyle": 1,
+              "points": "630:820;395:750"
+            },
+            {
+              "_type": "UMLDependencyView",
+              "_id": "ID_DV_0211",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_DEP_0142"
+              },
+              "head": {
+                "$ref": "ID_CV_0188"
+              },
+              "tail": {
+                "$ref": "ID_CV_0152"
+              },
+              "lineStyle": 1,
+              "points": "395:120;130:1010"
+            },
+            {
+              "_type": "UMLDependencyView",
+              "_id": "ID_DV_0212",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_DEP_0143"
+              },
+              "head": {
+                "$ref": "ID_CV_0192"
+              },
+              "tail": {
+                "$ref": "ID_CV_0152"
+              },
+              "lineStyle": 1,
+              "points": "395:120;380:1020"
+            },
+            {
+              "_type": "UMLDependencyView",
+              "_id": "ID_DV_0213",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_DEP_0144"
+              },
+              "head": {
+                "$ref": "ID_CV_0196"
+              },
+              "tail": {
+                "$ref": "ID_CV_0152"
+              },
+              "lineStyle": 1,
+              "points": "395:120;640:1020"
+            },
+            {
+              "_type": "UMLDependencyView",
+              "_id": "ID_DV_0214",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_DEP_0145"
+              },
+              "head": {
+                "$ref": "ID_CV_0188"
+              },
+              "tail": {
+                "$ref": "ID_CV_0148"
+              },
+              "lineStyle": 1,
+              "points": "130:95;130:1010"
+            },
+            {
+              "_type": "UMLDependencyView",
+              "_id": "ID_DV_0215",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_DEP_0146"
+              },
+              "head": {
+                "$ref": "ID_CV_0192"
+              },
+              "tail": {
+                "$ref": "ID_CV_0148"
+              },
+              "lineStyle": 1,
+              "points": "130:95;380:1020"
+            },
+            {
+              "_type": "UMLDependencyView",
+              "_id": "ID_DV_0216",
+              "_parent": {
+                "$ref": "ID_CDIAG_0003"
+              },
+              "model": {
+                "$ref": "ID_DEP_0147"
+              },
+              "head": {
+                "$ref": "ID_CV_0196"
+              },
+              "tail": {
+                "$ref": "ID_CV_0148"
+              },
+              "lineStyle": 1,
+              "points": "130:95;640:1020"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
