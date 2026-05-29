@@ -5,6 +5,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>modelo.Jugador</class>
+        <class>modelo.HistorialCarrera</class>
         <class>modelo.caballos.Caballo</class>
         <class>modelo.caballos.CaballoRapido</class>
         <class>modelo.caballos.CaballoLento</class>

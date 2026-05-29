@@ -3,10 +3,12 @@ package vista;
 import controlador.ControladorCarrera;
 import dto.CaballoDTO;
 import dto.EstadoCarreraDTO;
+import dto.HistorialDTO;
 import dto.JugadorDTO;
 import dto.ResultadoDTO;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -25,6 +27,7 @@ public class VistaCarreras extends JFrame {
     private static final String PANTALLA_CABALLOS  = "CABALLOS";
     private static final String PANTALLA_CARRERA   = "CARRERA";
     private static final String PANTALLA_RESULTADO = "RESULTADO";
+    private static final String PANTALLA_HISTORIAL = "HISTORIAL";
 
     private JTextField loginMailField;
     private JPasswordField loginPassField;
@@ -51,6 +54,11 @@ public class VistaCarreras extends JFrame {
     private JLabel labelPuntajeTotal;
     private JTextArea areaResultado;
 
+    private DefaultTableModel historialTableModel;
+    private JTable historialTable;
+    private JTextArea historialDetalle;
+    private List<HistorialDTO> historialData = new ArrayList<>();
+
     public VistaCarreras() {
         controlador = new ControladorCarrera();
         inicializarVentana();
@@ -74,6 +82,7 @@ public class VistaCarreras extends JFrame {
         panelPrincipal.add(crearPantallaCaballos(),  PANTALLA_CABALLOS);
         panelPrincipal.add(crearPantallaCarrera(),   PANTALLA_CARRERA);
         panelPrincipal.add(crearPantallaResultado(), PANTALLA_RESULTADO);
+        panelPrincipal.add(crearPantallaHistorial(), PANTALLA_HISTORIAL);
     }
 
     private void mostrar(String pantalla) {
@@ -212,9 +221,16 @@ public class VistaCarreras extends JFrame {
         centro.add(panelTarjetas, BorderLayout.CENTER);
         panel.add(centro, BorderLayout.CENTER);
 
+        JPanel sur = new JPanel(new GridLayout(1, 2, 10, 0));
+        sur.setOpaque(false);
         JButton btnIniciar = boton("Iniciar carrera");
         btnIniciar.addActionListener(e -> accionIniciarCarrera());
-        panel.add(btnIniciar, BorderLayout.SOUTH);
+        JButton btnHistorial = boton("Historial");
+        btnHistorial.setBackground(new Color(40, 100, 80));
+        btnHistorial.addActionListener(e -> { cargarHistorial(); mostrar(PANTALLA_HISTORIAL); });
+        sur.add(btnIniciar);
+        sur.add(btnHistorial);
+        panel.add(sur, BorderLayout.SOUTH);
 
         return panel;
     }
@@ -418,6 +434,79 @@ public class VistaCarreras extends JFrame {
         mostrar(PANTALLA_RESULTADO);
     }
 
+    private JPanel crearPantallaHistorial() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setBackground(new Color(22, 33, 22));
+        panel.setBorder(BorderFactory.createEmptyBorder(16, 20, 12, 20));
+
+        JLabel titulo = new JLabel("Historial de Carreras", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 20));
+        titulo.setForeground(new Color(180, 255, 180));
+        panel.add(titulo, BorderLayout.NORTH);
+
+        String[] columnas = {"Fecha", "Tu Caballo", "Ganador", "Posición", "Puntos"};
+        historialTableModel = new DefaultTableModel(columnas, 0) {
+            @Override public boolean isCellEditable(int r, int c) { return false; }
+        };
+        historialTable = new JTable(historialTableModel);
+        historialTable.setBackground(new Color(30, 50, 30));
+        historialTable.setForeground(Color.WHITE);
+        historialTable.setFont(new Font("Arial", Font.PLAIN, 13));
+        historialTable.setRowHeight(24);
+        historialTable.setSelectionBackground(new Color(50, 130, 70));
+        historialTable.setGridColor(new Color(50, 80, 50));
+        historialTable.getTableHeader().setBackground(new Color(20, 70, 40));
+        historialTable.getTableHeader().setForeground(Color.WHITE);
+        historialTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 13));
+
+        historialDetalle = new JTextArea(4, 40);
+        historialDetalle.setEditable(false);
+        historialDetalle.setBackground(new Color(25, 45, 25));
+        historialDetalle.setForeground(new Color(200, 240, 200));
+        historialDetalle.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        JScrollPane scrollDetalle = new JScrollPane(historialDetalle);
+        scrollDetalle.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createLineBorder(new Color(60, 120, 60)),
+            "Posiciones finales",
+            0, 0, new Font("Arial", Font.PLAIN, 11), new Color(150, 220, 150)));
+
+        historialTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) return;
+            int row = historialTable.getSelectedRow();
+            if (row >= 0 && row < historialData.size()) {
+                String detalle = historialData.get(row).posicionesFinales;
+                historialDetalle.setText(detalle.replace("|", "\n"));
+            }
+        });
+
+        JPanel centro = new JPanel(new BorderLayout(0, 8));
+        centro.setOpaque(false);
+        centro.add(new JScrollPane(historialTable), BorderLayout.CENTER);
+        centro.add(scrollDetalle, BorderLayout.SOUTH);
+        panel.add(centro, BorderLayout.CENTER);
+
+        JButton btnVolver = boton("Volver");
+        btnVolver.addActionListener(e -> mostrar(PANTALLA_CABALLOS));
+        panel.add(btnVolver, BorderLayout.SOUTH);
+
+        return panel;
+    }
+
+    private void cargarHistorial() {
+        historialData = controlador.getHistorial();
+        historialTableModel.setRowCount(0);
+        historialDetalle.setText("");
+        if (historialData.isEmpty()) {
+            historialDetalle.setText("Aún no participaste en ninguna carrera.");
+            return;
+        }
+        for (HistorialDTO h : historialData) {
+            historialTableModel.addRow(new Object[]{
+                h.fecha, h.caballoElegido, h.ganador, h.posicion, "+" + h.puntajeObtenido
+            });
+        }
+    }
+
     private void actualizarBienvenida(String nombre, int puntaje) {
         labelBienvenida.setText("Bienvenido, " + nombre + "!   |   Puntaje: " + puntaje);
     }
@@ -453,7 +542,7 @@ public class VistaCarreras extends JFrame {
     private JButton boton(String texto) {
         JButton btn = new JButton(texto);
         btn.setBackground(new Color(90, 60, 170));
-        btn.setForeground(Color.WHITE);
+        btn.setForeground(Color.BLACK);
         btn.setFocusPainted(false);
         btn.setFont(new Font("Arial", Font.BOLD, 13));
         return btn;

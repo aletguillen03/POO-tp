@@ -2,6 +2,7 @@ package controlador;
 
 import dto.CaballoDTO;
 import dto.EstadoCarreraDTO;
+import dto.HistorialDTO;
 import dto.JugadorDTO;
 import dto.ResultadoDTO;
 import modelo.Carrera;
@@ -70,6 +71,10 @@ public class ControladorCarrera {
 
     public int consultarPuntaje() {
         return sistema.getJugadorActual().getPuntaje();
+    }
+
+    public List<HistorialDTO> getHistorial() {
+        return sistema.getHistorialJugadorActual();
     }
 
     public ResultadoDTO obtenerResultado() {
