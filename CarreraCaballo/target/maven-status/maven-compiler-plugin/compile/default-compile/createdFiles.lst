@@ -3,11 +3,9 @@ modelo/HistorialCarrera.class
 dao/impl/HistorialDAOImpl.class
 modelo/Carrera.class
 vista/VistaCarreras$1.class
-vista/VistaCarreras$PistaPanel.class
 Main.class
 modelo/caballos/CaballoRandom.class
 modelo/ResultadoCarrera.class
-vista/VistaCarreras$2.class
 vista/VistaCarreras.class
 modelo/caballos/CaballoRapido.class
 dao/impl/CaballoDAOImpl.class
@@ -27,4 +25,3 @@ dto/ResultadoDTO.class
 modelo/caballos/CaballoLento.class
 service/PuntajeService.class
 dao/impl/JugadorDAOImpl.class
-vista/VistaCarreras$3.class
