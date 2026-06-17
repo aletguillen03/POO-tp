@@ -56,6 +56,9 @@ public class VistaCarreras extends JFrame {
     private JPasswordField regPassField;
     private JLabel regMensaje;
 
+    // --- Sesion activa ---
+    private JugadorDTO jugadorActual;
+
     // --- Pantalla seleccion de caballos ---
     private JLabel labelBienvenida;
     private DefaultListModel<String> modeloCaballos;
@@ -154,8 +157,9 @@ public class VistaCarreras extends JFrame {
         }
         JugadorDTO dto = controladorJugador.login(mail, pass);
         if (dto != null) {
+            jugadorActual = dto;
             loginMensaje.setText(" ");
-            actualizarBienvenida(dto.nombre, dto.puntaje);
+            actualizarBienvenida(jugadorActual.nombre, jugadorActual.puntaje);
             cargarCaballos();
             mostrar(PANTALLA_CABALLOS);
         } else {
@@ -216,8 +220,9 @@ public class VistaCarreras extends JFrame {
         }
         JugadorDTO dto = controladorJugador.crearJugador(nombre, mail, pass);
         if (dto != null) {
+            jugadorActual = dto;
             regMensaje.setText(" ");
-            actualizarBienvenida(dto.nombre, dto.puntaje);
+            actualizarBienvenida(jugadorActual.nombre, jugadorActual.puntaje);
             cargarCaballos();
             mostrar(PANTALLA_CABALLOS);
         } else {
@@ -279,7 +284,6 @@ public class VistaCarreras extends JFrame {
             return;
         }
         caballoSeleccionado = caballosDisponibles.get(idx).nombre;
-        controladorCaballo.elegirCaballo(caballoSeleccionado);
         controladorCarrera.prepararCarrera(DISTANCIA_CARRERA);
 
         prepararBarras(controladorCaballo.getCaballosDisponibles());
@@ -398,7 +402,7 @@ public class VistaCarreras extends JFrame {
         JPanel sur = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton btnJugarDeNuevo = new JButton("Jugar de nuevo");
         btnJugarDeNuevo.addActionListener(e -> {
-            actualizarBienvenida(controladorJugador.getNombreJugadorActual(), controladorJugador.consultarPuntaje());
+            actualizarBienvenida(jugadorActual.nombre, jugadorActual.puntaje);
             cargarCaballos();
             mostrar(PANTALLA_CABALLOS);
         });
@@ -409,10 +413,11 @@ public class VistaCarreras extends JFrame {
     }
 
     private void mostrarResultado() {
-        ResultadoDTO resultado = controladorCarrera.obtenerResultado();
+        ResultadoDTO resultado = controladorCarrera.obtenerResultado(jugadorActual, caballoSeleccionado);
+        jugadorActual.puntaje += resultado.puntajeObtenido;
         labelGanador.setText("Ganador: " + resultado.ganador);
         labelPuntaje.setText("Puntos obtenidos: +" + resultado.puntajeObtenido);
-        labelPuntajeTotal.setText("Puntaje acumulado: " + controladorJugador.consultarPuntaje());
+        labelPuntajeTotal.setText("Puntaje acumulado: " + jugadorActual.puntaje);
 
         StringBuilder sb = new StringBuilder("Posiciones finales:\n\n");
         for (int i = 0; i < resultado.posiciones.size(); i++) {
@@ -451,7 +456,7 @@ public class VistaCarreras extends JFrame {
     }
 
     private void cargarHistorial() {
-        historialData = controladorCarrera.getHistorial();
+        historialData = controladorCarrera.getHistorial(jugadorActual);
         historialTableModel.setRowCount(0);
         if (historialData.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Aun no participaste en ninguna carrera.");
