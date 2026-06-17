@@ -6,6 +6,7 @@ vista/VistaCarreras$1.class
 Main.class
 modelo/caballos/CaballoRandom.class
 modelo/ResultadoCarrera.class
+controlador/ControladorJugador.class
 vista/VistaCarreras.class
 modelo/caballos/CaballoRapido.class
 dao/impl/CaballoDAOImpl.class
@@ -18,6 +19,7 @@ modelo/caballos/Caballo.class
 dto/JugadorDTO.class
 util/JPAUtil.class
 dto/CaballoDTO.class
+controlador/ControladorCaballo.class
 modelo/SistemaCarreras.class
 dao/IJugadorDAO.class
 dao/ICaballoDAO.class

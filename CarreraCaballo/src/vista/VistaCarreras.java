@@ -17,16 +17,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Interfaz grafica basica (Swing) para el juego de Carrera de Caballos.
- *
- * Usa componentes estandar de Swing con el look & feel por defecto:
- * JLabel, JTextField, JButton, JList, JProgressBar, JTable y JTextArea.
- * Las pantallas se intercambian con un CardLayout.
- *
- * IMPORTANTE: esta clase solo arma la vista y llama a los controladores.
- * No contiene logica del juego (eso vive en el backend).
- */
 public class VistaCarreras extends JFrame {
 
     private final ControladorJugador controladorJugador;
@@ -109,9 +99,7 @@ public class VistaCarreras extends JFrame {
         cardLayout.show(panelPrincipal, pantalla);
     }
 
-    // ---------------------------------------------------------------------
     // Pantalla: Login
-    // ---------------------------------------------------------------------
     private JPanel crearPantallaLogin() {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
@@ -167,9 +155,7 @@ public class VistaCarreras extends JFrame {
         }
     }
 
-    // ---------------------------------------------------------------------
     // Pantalla: Registro
-    // ---------------------------------------------------------------------
     private JPanel crearPantallaRegistro() {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
@@ -230,9 +216,7 @@ public class VistaCarreras extends JFrame {
         }
     }
 
-    // ---------------------------------------------------------------------
     // Pantalla: Seleccion de caballo
-    // ---------------------------------------------------------------------
     private JPanel crearPantallaCaballos() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -292,9 +276,7 @@ public class VistaCarreras extends JFrame {
         iniciarTimer();
     }
 
-    // ---------------------------------------------------------------------
     // Pantalla: Carrera (barras de progreso)
-    // ---------------------------------------------------------------------
     private JPanel crearPantallaCarrera() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -310,7 +292,7 @@ public class VistaCarreras extends JFrame {
         return panel;
     }
 
-    /** Crea una barra de progreso por cada caballo participante. */
+    //Barras de progreso
     private void prepararBarras(List<CaballoDTO> caballos) {
         panelBarras.removeAll();
         barrasPorCaballo.clear();
@@ -369,9 +351,7 @@ public class VistaCarreras extends JFrame {
         timerCarrera.start();
     }
 
-    // ---------------------------------------------------------------------
     // Pantalla: Resultado
-    // ---------------------------------------------------------------------
     private JPanel crearPantallaResultado() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -428,9 +408,7 @@ public class VistaCarreras extends JFrame {
         mostrar(PANTALLA_RESULTADO);
     }
 
-    // ---------------------------------------------------------------------
     // Pantalla: Historial
-    // ---------------------------------------------------------------------
     private JPanel crearPantallaHistorial() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -469,9 +447,8 @@ public class VistaCarreras extends JFrame {
         }
     }
 
-    // ---------------------------------------------------------------------
+
     // Utilidades
-    // ---------------------------------------------------------------------
     private void actualizarBienvenida(String nombre, int puntaje) {
         labelBienvenida.setText("Bienvenido, " + nombre + "!   |   Puntaje: " + puntaje);
     }
