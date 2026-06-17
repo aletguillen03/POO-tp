@@ -3,7 +3,6 @@ package controlador;
 import dto.CaballoDTO;
 import dto.EstadoCarreraDTO;
 import dto.HistorialDTO;
-import dto.JugadorDTO;
 import dto.ResultadoDTO;
 import modelo.Carrera;
 import modelo.ResultadoCarrera;
@@ -16,35 +15,14 @@ import java.util.List;
 
 public class ControladorCarrera {
 
-    private SistemaCarreras sistema;
-    private PuntajeService puntajeService;
+    private final SistemaCarreras sistema;
+    private final PuntajeService puntajeService;
     private int turnoActual;
 
     public ControladorCarrera() {
         this.sistema = SistemaCarreras.getInstancia();
         this.puntajeService = new PuntajeService();
         this.turnoActual = 0;
-    }
-
-    public JugadorDTO login(String mail, String contrasena) {
-        return sistema.login(mail, contrasena);
-    }
-
-    public JugadorDTO crearJugador(String nombre, String mail, String contrasena) {
-        return sistema.registrarJugador(nombre, mail, contrasena);
-    }
-
-    public List<CaballoDTO> getCaballosDisponibles() {
-        return sistema.getCaballosDisponibles();
-    }
-
-    public boolean elegirCaballo(String nombreCaballo) {
-        Caballo caballo = sistema.buscarCaballo(nombreCaballo);
-        if (caballo != null) {
-            sistema.getJugadorActual().setCaballoElegido(caballo);
-            return true;
-        }
-        return false;
     }
 
     public void prepararCarrera(int distancia) {
@@ -61,16 +39,7 @@ public class ControladorCarrera {
         for (Caballo c : carrera.getParticipantes()) {
             posiciones.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida(), c.getColor()));
         }
-
         return new EstadoCarreraDTO(posiciones, turnoActual, terminada);
-    }
-
-    public String getNombreJugadorActual() {
-        return sistema.getJugadorActual().getNombre();
-    }
-
-    public int consultarPuntaje() {
-        return sistema.getJugadorActual().getPuntaje();
     }
 
     public List<HistorialDTO> getHistorial() {
@@ -79,9 +48,7 @@ public class ControladorCarrera {
 
     public ResultadoDTO obtenerResultado() {
         sistema.finalizarCarrera(puntajeService);
-
         ResultadoCarrera resultado = sistema.getResultadoActual();
-        String ganador = resultado.getGanador().getNombre();
 
         List<String> posiciones = new ArrayList<>();
         for (Caballo c : resultado.getPosiciones()) {
@@ -89,11 +56,11 @@ public class ControladorCarrera {
         }
 
         int puntajeObtenido = 0;
-        if (sistema.getJugadorActual() != null && sistema.getJugadorActual().getCaballoElegido() != null) {
-            int pos = resultado.posicion(sistema.getJugadorActual().getCaballoElegido());
-            puntajeObtenido = puntajeService.calcularPuntaje(pos);
+        Caballo elegido = sistema.getJugadorActual() != null
+                ? sistema.getJugadorActual().getCaballoElegido() : null;
+        if (elegido != null) {
+            puntajeObtenido = puntajeService.calcularPuntaje(resultado.posicion(elegido));
         }
-
-        return new ResultadoDTO(ganador, puntajeObtenido, posiciones);
+        return new ResultadoDTO(resultado.getGanador().getNombre(), puntajeObtenido, posiciones);
     }
 }

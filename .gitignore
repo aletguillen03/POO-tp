@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Maven compilados
+target/
+bin/
+
+# IntelliJ IDEA (archivos locales, no de proyecto)
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
