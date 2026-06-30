@@ -11,6 +11,8 @@
         <class>modelo.caballos.CaballoLento</class>
         <class>modelo.caballos.CaballoEstandar</class>
         <class>modelo.caballos.CaballoRandom</class>
+        <class>modelo.caballos.CaballoProfe</class>
+        <class>modelo.caballos.CaballoGigante</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

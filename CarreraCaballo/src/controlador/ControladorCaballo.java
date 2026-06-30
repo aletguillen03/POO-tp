@@ -3,45 +3,93 @@ package controlador;
 import dao.ICaballoDAO;
 import dao.impl.CaballoDAOImpl;
 import dto.CaballoDTO;
+import modelo.Jugador;
 import modelo.caballos.Caballo;
 import modelo.caballos.CaballoEstandar;
+import modelo.caballos.CaballoGigante;
 import modelo.caballos.CaballoLento;
+import modelo.caballos.CaballoProfe;
 import modelo.caballos.CaballoRandom;
 import modelo.caballos.CaballoRapido;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
+/**
+ * Controlador responsable unicamente de la entidad Caballo
+ * (listado, seleccion y alta de caballos).
+ */
 public class ControladorCaballo {
 
-    private final ICaballoDAO caballoDAO;
+    private static final String[] NOMBRES = {
+        "Rayo", "Trueno", "Centella", "Relampago", "Viento",
+        "Tornado", "Cometa", "Lucero", "Furia", "Sombra", "Brio", "Huracan"
+    };
+
+    private ICaballoDAO caballoDAO;
 
     public ControladorCaballo() {
         this.caballoDAO = new CaballoDAOImpl();
-        cargarCaballosIniciales();
+        asegurarCaballosBase();
     }
 
-    public List<CaballoDTO> getCaballosDisponibles() {
-        List<Caballo> lista = caballoDAO.listarDisponibles();
+    /** Devuelve los caballos disponibles como DTOs para la vista. */
+    public List<CaballoDTO> listarDisponibles() {
         List<CaballoDTO> dtos = new ArrayList<>();
-        for (Caballo c : lista) {
-            dtos.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida(), c.getColor()));
+        for (Caballo c : caballoDAO.listarDisponibles()) {
+            dtos.add(new CaballoDTO(c.getId(), c.getNombre(),
+                                    c.getVelocidadBase(), c.getDistRecorrida(), c.getTipo()));
         }
         return dtos;
     }
 
-    public Caballo buscarCaballo(String nombre) {
-        for (Caballo c : caballoDAO.listarDisponibles()) {
-            if (c.getNombre().equals(nombre)) return c;
-        }
-        return null;
+    /** Devuelve las entidades Caballo que participaran en la carrera. */
+    public List<Caballo> obtenerParticipantes() {
+        return caballoDAO.listarDisponibles();
     }
 
-    private void cargarCaballosIniciales() {
-        if (!caballoDAO.listarDisponibles().isEmpty()) return;
-        caballoDAO.guardar(new CaballoRapido("Rayo"));
-        caballoDAO.guardar(new CaballoLento("Tortuga"));
-        caballoDAO.guardar(new CaballoEstandar("Equilibrio"));
-        caballoDAO.guardar(new CaballoRandom("Caos"));
+    /** Busca el caballo por id y lo asigna como elegido del jugador. */
+    public void seleccionarCaballo(Jugador jugador, int idCaballo) {
+        Caballo caballo = caballoDAO.buscarPorId((long) idCaballo);
+        if (caballo != null) {
+            jugador.setCaballoElegido(caballo);
+        }
+    }
+
+    /**
+     * Agrega solo los tipos de caballo que todavia no existan en la base.
+     * No borra nada y no duplica: si ya estan todos, no hace nada.
+     */
+    public void asegurarCaballosBase() {
+        List<Caballo> existentes = caballoDAO.listarDisponibles();
+
+        // 1) asumo que no tengo ninguno
+        boolean hayRapido = false, hayLento = false, hayEstandar = false;
+        boolean hayRandom = false, hayProfe = false, hayGigante = false;
+
+        // 2) recorro los guardados y marco los que SI hay
+        for (Caballo c : existentes) {
+            if (c instanceof CaballoRapido)   hayRapido = true;
+            if (c instanceof CaballoLento)    hayLento = true;
+            if (c instanceof CaballoEstandar) hayEstandar = true;
+            if (c instanceof CaballoRandom)   hayRandom = true;
+            if (c instanceof CaballoProfe)    hayProfe = true;
+            if (c instanceof CaballoGigante)  hayGigante = true;
+        }
+
+        // 3) agrego SOLO los que faltan
+        List<String> pool = new ArrayList<>(Arrays.asList(NOMBRES));
+        Collections.shuffle(pool, new Random());
+        int i = 0;
+
+        if (!hayRapido)   caballoDAO.guardar(new CaballoRapido(pool.get(i++)));
+        if (!hayLento)    caballoDAO.guardar(new CaballoLento(pool.get(i++)));
+        if (!hayEstandar) caballoDAO.guardar(new CaballoEstandar(pool.get(i++)));
+        if (!hayRandom)   caballoDAO.guardar(new CaballoRandom(pool.get(i++)));
+        if (!hayProfe)    caballoDAO.guardar(new CaballoProfe(pool.get(i++)));
+        if (!hayGigante)  caballoDAO.guardar(new CaballoGigante(pool.get(i++)));
     }
 }

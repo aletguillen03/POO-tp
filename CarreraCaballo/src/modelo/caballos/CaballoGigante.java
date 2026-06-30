@@ -5,19 +5,19 @@ import jakarta.persistence.Entity;
 import java.util.Random;
 
 @Entity
-@DiscriminatorValue("ESTANDAR")
-public class CaballoEstandar extends Caballo {
+@DiscriminatorValue("gigante")
+public class CaballoGigante extends Caballo {
 
     private static final Random random = new Random();
 
-    public CaballoEstandar() {}
+    public CaballoGigante() {}
 
-    public CaballoEstandar(String nombre) {
-        super(nombre, 10, 3, 100);
+    public CaballoGigante(String nombre) {
+        super(nombre, 30, 3, 100);
     }
 
     @Override
-    public String getTipo() { return "Estandar"; }
+    public String getTipo() { return "Gigante"; }
 
     @Override
     public int calcularAvance() {

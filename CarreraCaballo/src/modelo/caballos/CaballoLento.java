@@ -17,7 +17,7 @@ public class CaballoLento extends Caballo {
     }
 
     @Override
-    public String getColor() { return "RED"; }
+    public String getTipo() { return "Lento"; }
 
     @Override
     public int calcularAvance() {

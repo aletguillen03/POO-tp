@@ -5,25 +5,25 @@ import jakarta.persistence.Entity;
 import java.util.Random;
 
 @Entity
-@DiscriminatorValue("RAPIDO")
-public class CaballoRapido extends Caballo {
+@DiscriminatorValue("PROFE")
+public class CaballoProfe extends Caballo {
 
     private static final Random random = new Random();
 
-    public CaballoRapido() {}
+    public CaballoProfe() {}
 
-    public CaballoRapido(String nombre) {
-        super(nombre, 12, 4, 100);
+    public CaballoProfe(String nombre) {
+        super(nombre, 12, 2, 100);
     }
 
     @Override
-    public String getTipo() { return "Veloz"; }
+    public String getTipo() { return "Profe"; }
 
     @Override
     public int calcularAvance() {
-        if (energia <= 0) return velocidadBase - 4;
+        if (energia <= 0) return velocidadBase - 1;
         int avance = velocidadBase + random.nextInt(8);
-        int desgaste = 8 + random.nextInt(8);
+        int desgaste = resistencia + random.nextInt(3);
         energia = Math.max(0, energia - desgaste);
         return avance;
     }

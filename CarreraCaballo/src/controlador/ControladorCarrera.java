@@ -1,15 +1,12 @@
 package controlador;
 
-import dao.ICaballoDAO;
 import dao.IHistorialDAO;
 import dao.IJugadorDAO;
-import dao.impl.CaballoDAOImpl;
 import dao.impl.HistorialDAOImpl;
 import dao.impl.JugadorDAOImpl;
 import dto.CaballoDTO;
 import dto.EstadoCarreraDTO;
 import dto.HistorialDTO;
-import dto.JugadorDTO;
 import dto.ResultadoDTO;
 import modelo.Carrera;
 import modelo.HistorialCarrera;
@@ -22,90 +19,95 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controlador responsable de la carrera: prepararla, avanzar turnos,
+ * detectar al ganador y resolver el resultado (puntaje + historial).
+ */
 public class ControladorCarrera {
 
-    private final ICaballoDAO caballoDAO;
-    private final IHistorialDAO historialDAO;
-    private final IJugadorDAO jugadorDAO;
-    private final PuntajeService puntajeService;
-    private Carrera carreraEnCurso;
+    private Carrera carreraActual;
+    private PuntajeService puntajeService;
+    private IHistorialDAO historialDAO;
+    private IJugadorDAO jugadorDAO;
     private int turnoActual;
 
     public ControladorCarrera() {
-        this.caballoDAO      = new CaballoDAOImpl();
-        this.historialDAO    = new HistorialDAOImpl();
-        this.jugadorDAO      = new JugadorDAOImpl();
-        this.puntajeService  = new PuntajeService();
-        this.turnoActual     = 0;
+        this.puntajeService = new PuntajeService();
+        this.historialDAO = new HistorialDAOImpl();
+        this.jugadorDAO = new JugadorDAOImpl();
+        this.turnoActual = 0;
     }
 
-    public void prepararCarrera(int distancia) {
-        turnoActual = 0;
-        List<Caballo> participantes = caballoDAO.listarDisponibles();
-        carreraEnCurso = new Carrera(participantes, distancia);
+    public void prepararCarrera(List<Caballo> participantes, int distancia) {
+        this.turnoActual = 0;
+        this.carreraActual = new Carrera(participantes, distancia);
     }
 
     public EstadoCarreraDTO avanzarTurno() {
-        boolean terminada = carreraEnCurso.avanzarTurno();
+        boolean terminada = carreraActual.avanzarTurno();
         turnoActual++;
-        List<CaballoDTO> caballos = new ArrayList<>();
-        for (Caballo c : carreraEnCurso.getParticipantes()) {
-            caballos.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida(), c.getColor()));
+
+        List<CaballoDTO> posiciones = new ArrayList<>();
+        for (Caballo c : carreraActual.getParticipantes()) {
+            posiciones.add(new CaballoDTO(c.getId(), c.getNombre(),
+                                          c.getVelocidadBase(), c.getDistRecorrida(), c.getTipo()));
         }
-        return new EstadoCarreraDTO(caballos, turnoActual, terminada);
+        return new EstadoCarreraDTO(posiciones, turnoActual, terminada);
     }
 
-    public ResultadoDTO obtenerResultado(JugadorDTO jugadorDTO, String nombreCaballo) {
-        ResultadoCarrera resultado = carreraEnCurso.getResultado();
+    public boolean hayGanador() {
+        return carreraActual.hayGanador();
+    }
 
-        Jugador jugador = jugadorDAO.buscarPorMail(jugadorDTO.mail);
+    public ResultadoDTO obtenerResultado(Jugador jugador) {
+        ResultadoCarrera resultado = carreraActual.getResultado();
 
-        Caballo caballoElegido = null;
-        for (Caballo c : resultado.getPosiciones()) {
-            if (c.getNombre().equals(nombreCaballo)) {
-                caballoElegido = c;
-                break;
-            }
-        }
-
-        int puntajeObtenido = 0;
-        if (jugador != null && caballoElegido != null) {
-            int pos = resultado.posicion(caballoElegido);
-            puntajeObtenido = puntajeService.calcularPuntaje(pos);
-            puntajeService.asignarPuntaje(jugador, pos);
-            jugadorDAO.actualizar(jugador);
-
-            StringBuilder sb = new StringBuilder();
-            List<Caballo> posicionesList = resultado.getPosiciones();
-            for (int i = 0; i < posicionesList.size(); i++) {
-                if (i > 0) sb.append("|");
-                sb.append(i + 1).append(". ")
-                  .append(posicionesList.get(i).getNombre())
-                  .append(" — ").append(posicionesList.get(i).getDistRecorrida()).append("m");
-            }
-            historialDAO.guardar(new HistorialCarrera(
-                jugador, nombreCaballo, pos, puntajeObtenido,
-                resultado.getGanador().getNombre(),
-                sb.toString(), LocalDateTime.now()
-            ));
-        }
-
+        String ganador = resultado.getGanador().getNombre();
         List<String> posiciones = new ArrayList<>();
         for (Caballo c : resultado.getPosiciones()) {
             posiciones.add(c.getNombre() + " — " + c.getDistRecorrida() + " m");
         }
-        return new ResultadoDTO(resultado.getGanador().getNombre(), puntajeObtenido, posiciones);
+
+        int puntajeObtenido = 0;
+        if (jugador != null && jugador.getCaballoElegido() != null) {
+            int pos = resultado.posicion(jugador.getCaballoElegido());
+            puntajeObtenido = puntajeService.calcularPuntaje(pos);
+            puntajeService.asignarPuntaje(jugador, pos);
+            jugadorDAO.actualizar(jugador);
+            registrarHistorial(jugador, resultado, pos, puntajeObtenido);
+        }
+
+        return new ResultadoDTO(ganador, puntajeObtenido, posiciones);
     }
 
-    public List<HistorialDTO> getHistorial(JugadorDTO jugadorDTO) {
-        Jugador jugador = jugadorDAO.buscarPorMail(jugadorDTO.mail);
-        if (jugador == null) return new ArrayList<>();
-        List<HistorialCarrera> lista = historialDAO.listarPorJugador(jugador);
+    public List<HistorialDTO> getHistorial(Jugador jugador) {
         List<HistorialDTO> dtos = new ArrayList<>();
-        for (HistorialCarrera h : lista) {
+        if (jugador == null) return dtos;
+        for (HistorialCarrera h : historialDAO.listarPorJugador(jugador)) {
             dtos.add(new HistorialDTO(h.getFecha(), h.getCaballoElegido(), h.getGanador(),
                                       h.getPosicion(), h.getPuntajeObtenido(), h.getPosicionesFinales()));
         }
         return dtos;
+    }
+
+    private void registrarHistorial(Jugador jugador, ResultadoCarrera resultado,
+                                    int posicion, int puntos) {
+        StringBuilder sb = new StringBuilder();
+        List<Caballo> posiciones = resultado.getPosiciones();
+        for (int i = 0; i < posiciones.size(); i++) {
+            if (i > 0) sb.append("|");
+            sb.append(i + 1).append(". ")
+              .append(posiciones.get(i).getNombre())
+              .append(" — ").append(posiciones.get(i).getDistRecorrida()).append("m");
+        }
+        historialDAO.guardar(new HistorialCarrera(
+            jugador,
+            jugador.getCaballoElegido().getNombre(),
+            posicion,
+            puntos,
+            resultado.getGanador().getNombre(),
+            sb.toString(),
+            LocalDateTime.now()
+        ));
     }
 }

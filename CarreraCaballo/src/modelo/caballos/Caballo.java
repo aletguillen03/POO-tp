@@ -41,7 +41,7 @@ public abstract class Caballo {
 
     public abstract int calcularAvance();
 
-    public abstract String getColor();
+    public abstract String getTipo();
 
     public Long getId() { return id; }
     public String getNombre() { return nombre; }
