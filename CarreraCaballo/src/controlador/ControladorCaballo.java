@@ -25,7 +25,7 @@ public class ControladorCaballo {
         List<Caballo> lista = caballoDAO.listarDisponibles();
         List<CaballoDTO> dtos = new ArrayList<>();
         for (Caballo c : lista) {
-            dtos.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida(), c.getColor()));
+            dtos.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida()));
         }
         return dtos;
     }

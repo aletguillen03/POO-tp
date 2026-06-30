@@ -17,9 +17,6 @@ public class CaballoRandom extends Caballo {
     }
 
     @Override
-    public String getColor() { return "BLUE"; }
-
-    @Override
     public int calcularAvance() {
         return 1 + random.nextInt(20);
     }

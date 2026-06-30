@@ -50,7 +50,7 @@ public class ControladorCarrera {
         turnoActual++;
         List<CaballoDTO> caballos = new ArrayList<>();
         for (Caballo c : carreraEnCurso.getParticipantes()) {
-            caballos.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida(), c.getColor()));
+            caballos.add(new CaballoDTO(c.getNombre(), c.getVelocidadBase(), c.getDistRecorrida()));
         }
         return new EstadoCarreraDTO(caballos, turnoActual, terminada);
     }

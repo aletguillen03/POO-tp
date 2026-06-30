@@ -253,8 +253,8 @@ public class VistaCarreras extends JFrame {
         modeloCaballos.clear();
         for (CaballoDTO c : caballosDisponibles) {
             modeloCaballos.addElement(
-                String.format("%-14s  tipo: %-9s  velocidad: %d",
-                    c.nombre, tipoDesdeCadena(c.color), c.velocidadBase));
+                String.format("%-14s  velocidad: %d",
+                    c.nombre, c.velocidadBase));
         }
         if (!modeloCaballos.isEmpty()) {
             listaCaballos.setSelectedIndex(0);
@@ -451,16 +451,5 @@ public class VistaCarreras extends JFrame {
     // Utilidades
     private void actualizarBienvenida(String nombre, int puntaje) {
         labelBienvenida.setText("Bienvenido, " + nombre + "!   |   Puntaje: " + puntaje);
-    }
-
-    private String tipoDesdeCadena(String color) {
-        if (color == null) return "";
-        switch (color) {
-            case "GREEN":  return "Veloz";
-            case "RED":    return "Lento";
-            case "YELLOW": return "Estandar";
-            case "BLUE":   return "Random";
-            default:       return "";
-        }
     }
 }

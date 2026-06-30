@@ -17,9 +17,6 @@ public class CaballoRapido extends Caballo {
     }
 
     @Override
-    public String getColor() { return "GREEN"; }
-
-    @Override
     public int calcularAvance() {
         if (energia <= 0) return velocidadBase - 4;
         int avance = velocidadBase + random.nextInt(8);
