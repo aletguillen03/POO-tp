@@ -39,6 +39,7 @@ public class ControladorCaballo {
     /** Devuelve los caballos disponibles como DTOs para la vista. */
     public List<CaballoDTO> listarDisponibles() {
         List<CaballoDTO> dtos = new ArrayList<>();
+        version-final
         for (Caballo c : caballoDAO.listarDisponibles()) {
             dtos.add(new CaballoDTO(c.getId(), c.getNombre(),
                                     c.getVelocidadBase(), c.getDistRecorrida(), c.getTipo()));
