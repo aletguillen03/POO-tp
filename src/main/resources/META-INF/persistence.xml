@@ -9,14 +9,15 @@
         <class>modelo.caballos.Caballo</class>
         <class>modelo.caballos.CaballoRapido</class>
         <class>modelo.caballos.CaballoLento</class>
-        <class>modelo.caballos.CaballoRandom</class>
         <class>modelo.caballos.CaballoEstandar</class>
+        <class>modelo.caballos.CaballoRandom</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/carrerasdb"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="1234"/>
+
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>

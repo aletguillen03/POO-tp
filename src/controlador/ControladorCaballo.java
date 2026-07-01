@@ -4,13 +4,17 @@ import dao.ICaballoDAO;
 import dao.impl.CaballoDAOImpl;
 import dto.CaballoDTO;
 import modelo.Jugador;
-import modelo.caballos.*;
+import modelo.caballos.Caballo;
+import modelo.caballos.CaballoEstandar;
+import modelo.caballos.CaballoLento;
+import modelo.caballos.CaballoRandom;
+import modelo.caballos.CaballoRapido;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
+import modelo.caballos.CaballoPOO;
 /**
  * Controlador responsable unicamente de la entidad Caballo
  * (listado, seleccion y alta de caballos).
@@ -61,14 +65,15 @@ public class ControladorCaballo {
 
         // 1) asumo que no tengo ninguno
         boolean hayRapido = false, hayLento = false, hayEstandar = false;
-        boolean hayRandom = false;
+        boolean hayRandom = false,  hayCaballoPOO = false;
 
         // 2) recorro los guardados y marco los que SI hay
         for (Caballo c : existentes) {
             if (c instanceof CaballoRapido)   hayRapido = true;
             if (c instanceof CaballoLento)    hayLento = true;
+            if (c instanceof CaballoEstandar) hayEstandar = true;
             if (c instanceof CaballoRandom)   hayRandom = true;
-            if (c instanceof CaballoEstandar)   hayEstandar = true;
+            if (c instanceof CaballoPOO)   hayCaballoPOO = true;
 
         }
 
@@ -79,8 +84,9 @@ public class ControladorCaballo {
 
         if (!hayRapido)   caballoDAO.guardar(new CaballoRapido(pool.get(i++)));
         if (!hayLento)    caballoDAO.guardar(new CaballoLento(pool.get(i++)));
-        if (!hayRandom)   caballoDAO.guardar(new CaballoRandom(pool.get(i++)));
         if (!hayEstandar) caballoDAO.guardar(new CaballoEstandar(pool.get(i++)));
-
+        if (!hayRandom)   caballoDAO.guardar(new CaballoRandom(pool.get(i++)));
+        if (!hayCaballoPOO)   caballoDAO.guardar(new CaballoPOO(pool.get(i++)));
+        
     }
 }
